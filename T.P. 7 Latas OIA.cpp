@@ -11,30 +11,23 @@ int main(){
 	cin>>str;
 	vector <pair<int, pair<int, int>>> secuencias;
 	string charAct="";
-	charAct+=str[0];
+	charAct+='G';
 	int inicio=0;
 	int contador=1;
-	for (int i=1;i
-	<str.size();i++){
-		if (str[i]==charAct[0]){
-			contador++;
-		}
-		else {
-			secuencias.push_back({contador,{inicio,i-1}});
-			inicio=i;
-			contador=0;
-		}
+	for (int i=1;i<str.size();i++){
+		while (str[i]=='G' && i<str.size()){
+            contador++;
+            i++;
 	}
+    secuencias.push_back({contador,{inicio, i-1}});
+    contador=0;
+    inicio=i;
+    }
 	sort (secuencias.rbegin(), secuencias.rend());
 	cout<<getLong(str)<<endl;
 	cout<<secuencias[0].largo<<endl;
 	cout<<secuencias[1].largo<<endl;
 	if (secuencias[0].hasta<secuencias[1].desde) cout<<secuencias[1].desde-secuencias[0].hasta;
 	else cout<<secuencias[0].desde-secuencias[1].hasta;
-	
 }
-// 1 3 
-// 4 5 
-//4 5
-//1 3 
 
