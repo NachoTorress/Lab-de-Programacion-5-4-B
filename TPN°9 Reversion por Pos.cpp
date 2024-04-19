@@ -5,6 +5,6 @@ int main(){
 	string str="hola", str2; 
 	getline(cin,str);
 	getline(cin,str2);
-	reverse(str2.begin()+ini,str2.begin()+ini+fin+1);
+	reverse(str2.begin()+ini,str2.begin()+fin+1);
 	cout<<str2;
 }
